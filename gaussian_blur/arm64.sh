@@ -49,3 +49,14 @@ ar q libarm64/halide_gaussian_blur_all.a \
     libarm64/halide_gaussian_blur_ksize7.o \
     libarm64/halide_gaussian_blur_ksize9.o \
     libarm64/halide_runtime_arm64.o
+    
+aarch64-linux-gnu-g++-8 gaussblur_run.cpp \
+  halide_gaussian_blur_all.a \
+ -I /home/chunying/research/Halide/build/include/ \
+ -lpthread -ldl -std=c++11 \
+  -o gaussblur_run \
+  -lopencv_core -lopencv_imgproc - O3
+  
+  
+# copy gaussblur_run and needed headers to firefly
+
